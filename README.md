@@ -1,4 +1,4 @@
-# STARLIMS Frontend
+# STARLIMS React / Vite.js Frontend
 
 Welcome to the STARLIMS frontend repository! This project is built with React and Vite, providing a modern and efficient development environment for interfacing with STARLIMS through its REST API.
 
