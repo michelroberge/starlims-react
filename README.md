@@ -2,6 +2,8 @@
 
 Welcome to the STARLIMS frontend repository! This project is built with React and Vite, providing a modern and efficient development environment for interfacing with STARLIMS through its REST API.
 
+This project depends on https://github.com/michelroberge/starlims-node-proxy
+
 ## Getting Started
 
 To get started with development, follow these steps:
