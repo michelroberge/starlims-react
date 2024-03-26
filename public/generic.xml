@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.starlims.com/webservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.starlims.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Standard Web Services interface for the STARLIMS Web Application.&lt;br&gt;&lt;br&gt;
+	&lt;a href='https://www.informatics.abbott'&gt;STARLIMS&lt;/a&gt; is a powerful, full-featured, highly extensible and scalable laboratory information management system. Abbott Informatics primary goal has been to deliver leading edge, flexible and easy-to-use, collaborative LIMS solutions to organizations worldwide, comprising corporate, government, municipal, and private laboratories, within the chemical, clinical, environmental, food, forensics, petrochemical and pharmaceutical industries.&lt;/b&gt;</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.starlims.com/webservices/">
+      <s:element name="RunAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RunActionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunActionResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunActionDirect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunActionDirectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunActionDirectResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunRESTActions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actionUrls" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RunRESTActionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunRESTActionsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserLoginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLogout">
+        <s:complexType />
+      </s:element>
+      <s:element name="UserLogoutResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UserLogged">
+        <s:complexType />
+      </s:element>
+      <s:element name="UserLoggedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserLoggedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RunActionSoapIn">
+    <wsdl:part name="parameters" element="tns:RunAction" />
+  </wsdl:message>
+  <wsdl:message name="RunActionSoapOut">
+    <wsdl:part name="parameters" element="tns:RunActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunActionDirectSoapIn">
+    <wsdl:part name="parameters" element="tns:RunActionDirect" />
+  </wsdl:message>
+  <wsdl:message name="RunActionDirectSoapOut">
+    <wsdl:part name="parameters" element="tns:RunActionDirectResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunRESTActionsSoapIn">
+    <wsdl:part name="parameters" element="tns:RunRESTActions" />
+  </wsdl:message>
+  <wsdl:message name="RunRESTActionsSoapOut">
+    <wsdl:part name="parameters" element="tns:RunRESTActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserLogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:UserLogout" />
+  </wsdl:message>
+  <wsdl:message name="UserLogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:UserLogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserLoggedSoapIn">
+    <wsdl:part name="parameters" element="tns:UserLogged" />
+  </wsdl:message>
+  <wsdl:message name="UserLoggedSoapOut">
+    <wsdl:part name="parameters" element="tns:UserLoggedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GenericServicesSoap">
+    <wsdl:operation name="RunAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Run any STARLIMS action. This web service method is here to provide the maximum flexibility in accessing STARLIMS functionality.</wsdl:documentation>
+      <wsdl:input message="tns:RunActionSoapIn" />
+      <wsdl:output message="tns:RunActionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunActionDirect">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Run any STARLIMS action in one single call passing all information it requires together with STARLIMS Credentials. This web service method is here to provide the maximum flexibility in accessing STARLIMS functionality and is intended to be used from very rare calls to STARLIMS.</wsdl:documentation>
+      <wsdl:input message="tns:RunActionDirectSoapIn" />
+      <wsdl:output message="tns:RunActionDirectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunRESTActions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Run a collection of REST style actions.</wsdl:documentation>
+      <wsdl:input message="tns:RunRESTActionsSoapIn" />
+      <wsdl:output message="tns:RunRESTActionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticate a user based on login information. You need to have a cookie capable client in order to make authentication</wsdl:documentation>
+      <wsdl:input message="tns:UserLoginSoapIn" />
+      <wsdl:output message="tns:UserLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Logout user from StarLIMS system</wsdl:documentation>
+      <wsdl:input message="tns:UserLogoutSoapIn" />
+      <wsdl:output message="tns:UserLogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogged">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns true is the user is logged to the system</wsdl:documentation>
+      <wsdl:input message="tns:UserLoggedSoapIn" />
+      <wsdl:output message="tns:UserLoggedSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GenericServicesSoap" type="tns:GenericServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RunAction">
+      <soap:operation soapAction="http://www.starlims.com/webservices/RunAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunActionDirect">
+      <soap:operation soapAction="http://www.starlims.com/webservices/RunActionDirect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunRESTActions">
+      <soap:operation soapAction="http://www.starlims.com/webservices/RunRESTActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction="http://www.starlims.com/webservices/UserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogout">
+      <soap:operation soapAction="http://www.starlims.com/webservices/UserLogout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogged">
+      <soap:operation soapAction="http://www.starlims.com/webservices/UserLogged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GenericServicesSoap12" type="tns:GenericServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RunAction">
+      <soap12:operation soapAction="http://www.starlims.com/webservices/RunAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunActionDirect">
+      <soap12:operation soapAction="http://www.starlims.com/webservices/RunActionDirect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunRESTActions">
+      <soap12:operation soapAction="http://www.starlims.com/webservices/RunRESTActions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap12:operation soapAction="http://www.starlims.com/webservices/UserLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogout">
+      <soap12:operation soapAction="http://www.starlims.com/webservices/UserLogout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogged">
+      <soap12:operation soapAction="http://www.starlims.com/webservices/UserLogged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GenericServices">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Standard Web Services interface for the STARLIMS Web Application.&lt;br&gt;&lt;br&gt;
+	&lt;a href='https://www.informatics.abbott'&gt;STARLIMS&lt;/a&gt; is a powerful, full-featured, highly extensible and scalable laboratory information management system. Abbott Informatics primary goal has been to deliver leading edge, flexible and easy-to-use, collaborative LIMS solutions to organizations worldwide, comprising corporate, government, municipal, and private laboratories, within the chemical, clinical, environmental, food, forensics, petrochemical and pharmaceutical industries.&lt;/b&gt;</wsdl:documentation>
+    <wsdl:port name="GenericServicesSoap" binding="tns:GenericServicesSoap">
+      <soap:address location="http://dev-starlims.sgs.com/STARLIMS11.sgs.dev/services/generic.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GenericServicesSoap12" binding="tns:GenericServicesSoap12">
+      <soap12:address location="http://dev-starlims.sgs.com/STARLIMS11.sgs.dev/services/generic.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

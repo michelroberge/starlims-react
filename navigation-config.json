@@ -1,0 +1,74 @@
+[
+    {
+        "caption": "Home",
+        "path": "/",
+        "isPrivate": false,
+        "component": "Home"
+    },
+    {
+        "caption": "Organization",
+        "children": [
+            {
+                "caption": "Laboratories",
+                "path": "/labs",
+                "component": "starlims/Labs",
+                "isPrivate": true
+            },
+            {
+                "caption": "Affiliates",
+                "path": "/affiliates ",
+                "component": "starlims/Affiliates",
+                "isPrivate": true
+            }
+        ],
+        "isPrivate": true
+    },
+    {
+        "caption": "Workflows",
+        "children": [
+            {
+                "caption": "Folder List",
+                "path": "/folder-list",
+                "component": "starlims/FolderList",
+                "isPrivate": true
+            }
+        ],
+        "isPrivate": true
+        },
+        {
+            "path": "/folder-login",
+            "isPrivate": true,
+            "component": "starlims/FolderLogin"
+        },
+        {
+            "caption": "About",
+            "path": "/about",
+            "isPrivate": false,
+            "component": "About"
+        },
+        {
+            "path": "/folder-login",
+            "isPrivate": true,
+            "component": "starlims/FolderLogin"
+        },
+        {
+            "path": "/sample-reception",
+            "isPrivate": true,
+            "component": "starlims/SampleReception"
+        },
+        {
+            "path": "/result-entry",
+            "isPrivate": true,
+            "component": "starlims/ResultEntry"
+        },
+        {
+            "path": "/folder-reports",
+            "isPrivate": true,
+            "component": "starlims/FolderReports"
+        },
+        {
+            "path": "/dashboard-reference",
+            "isPrivate": true,
+            "component": "DashboardReference"
+        }
+    ]
